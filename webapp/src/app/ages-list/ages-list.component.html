@@ -1,0 +1,6 @@
+<div class="container special">
+    <h2 class="h2">Liste des ages</h2>
+    <div class="d-flex justify-content-center flex-wrap">
+        <app-age *ngFor="let ageElement of ages$ | async" [age]="ageElement" class="stark-flex m-3 text-center"></app-age>
+    </div>
+</div>

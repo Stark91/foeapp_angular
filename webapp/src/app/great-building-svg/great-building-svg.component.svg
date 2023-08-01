@@ -1,0 +1,3 @@
+<svg [attr.width]="w" [attr.height]="h">
+    <line class="stark-svg" *ngFor="let line of lines" [attr.x1]="line.x1" [attr.y1]="line.y1" [attr.x2]="line.x2" [attr.y2]="line.y2"/>
+</svg>

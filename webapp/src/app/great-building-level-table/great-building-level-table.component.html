@@ -1,0 +1,86 @@
+<form *ngIf="rewards" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="input-group m-3 w-25">
+        <span class="input-group-text">Niveau</span>
+        <input [(ngModel)]="level" name="level" type="number" min="1" class="form-control">
+    </div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Places</th>
+                <th scope="col">Récompense base</th>
+                <th scope="col">Récompense arche</th>
+                <th scope="col">Taux arche</th>
+                <th scope="col">Sécurisation</th>
+                <th scope="col">Cumul sécurisation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">P1</th>
+                <td>{{getRewardByLevel(level).p1}}</td>
+                <td>{{getBoostedReward(getRewardByLevel(level).p1, p1ArchBoost)}}</td>
+                <td>
+                    <div class="stark-arch-boost input-group">
+                        <input [(ngModel)]="p1ArchBoost" name="p1ArchBoost" type="number" step="0.1" min="0" class="form-control" aria-label="Taux P1" id="p1-arch-boost-input" aria-describedby="p1-arch-boost">
+                        <span class="input-group-text" id="p1-arch-boost">%</span>
+                    </div>
+                </td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[0]}}</td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[0]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">P2</th>
+                <td>{{getRewardByLevel(level).p2}}</td>
+                <td>{{getBoostedReward(getRewardByLevel(level).p2, p2ArchBoost)}}</td>
+                <td>
+                    <div class="stark-arch-boost input-group">
+                        <input [(ngModel)]="p2ArchBoost" name="p2ArchBoost" type="number" step="0.1" min="0" class="form-control" aria-label="Taux P1" id="p2-arch-boost-input" aria-describedby="p2-arch-boost">
+                        <span class="input-group-text" id="p2-arch-boost">%</span>
+                    </div>
+                </td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[1]}}</td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[0] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[1]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">P3</th>
+                <td>{{getRewardByLevel(level).p3}}</td>
+                <td>{{getBoostedReward(getRewardByLevel(level).p3, p3ArchBoost)}}</td>
+                <td>
+                    <div class="stark-arch-boost input-group">
+                        <input [(ngModel)]="p3ArchBoost" name="p3ArchBoost" type="number" step="0.1" min="0" class="form-control" aria-label="Taux P3" id="p3-arch-boost-input" aria-describedby="p3-arch-boost">
+                        <span class="input-group-text" id="p3-arch-boost">%</span>
+                    </div>
+                </td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[2]}}</td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[0] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[1] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[2]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">P4</th>
+                <td>{{getRewardByLevel(level).p4}}</td>
+                <td>{{getBoostedReward(getRewardByLevel(level).p4, p4ArchBoost)}}</td>
+                <td>
+                    <div class="stark-arch-boost input-group">
+                        <input [(ngModel)]="p4ArchBoost" name="p4ArchBoost" type="number" step="0.1" min="0" class="form-control" aria-label="Taux P4" id="p4-arch-boost-input" aria-describedby="p4-arch-boost">
+                        <span class="input-group-text" id="p4-arch-boost">%</span>
+                    </div>
+                </td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[3]}}</td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[0] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[1] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[2] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[3]}}</td>
+            </tr>
+            <tr>
+                <th scope="row">P5</th>
+                <td>{{getRewardByLevel(level).p5}}</td>
+                <td>{{getBoostedReward(getRewardByLevel(level).p5, p5ArchBoost)}}</td>
+                <td>
+                    <div class="stark-arch-boost input-group">
+                        <input [(ngModel)]="p5ArchBoost" name="p5ArchBoost" type="number" step="0.1" min="0" class="form-control" aria-label="Taux P5" id="p5-arch-boost-input" aria-describedby="p5-arch-boost">
+                        <span class="input-group-text" id="p5-arch-boost">%</span>
+                    </div>
+                </td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[4]}}</td>
+                <td>{{getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[0] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[1] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[2] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[3] + getFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])[4]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <span>({{getTotalFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost])}} PF à poser sur un total de {{getRewardByLevel(level).total}} PF soit {{getPercentTotalFpToSecure(getTotalFpToSecure(getRewardByLevel(level), [p1ArchBoost, p2ArchBoost, p3ArchBoost, p4ArchBoost, p5ArchBoost]), getRewardByLevel(level).total).toFixed(2)}}%)</span>
+</form>

@@ -1,0 +1,11 @@
+<div *ngIf="gb$ | async as gb" class="container special">
+    <h2 class="h2"> {{gb.name}} </h2>
+    <div class="nav nav-pills nav-fill">
+        <button id="gb-nav-tab" [ngClass]="{'stark-nav-tab': true, 'nav-link': true, 'bi': true, 'bi-building': true, 'active': tab === 0, 'text-bg-dark': tab !== 0}" (click)="onDescription()"> Description </button>
+        <button id="lvl-nav-tab" [ngClass]="{'stark-nav-tab': true, 'nav-link': true, 'bi': true, 'bi-shield-fill-check': true, 'active': tab === 1, 'text-bg-dark': tab !== 1}" (click)="onLevel()"> Sécurisation du niveau </button>
+        <button id="rush-nav-tab" [ngClass]="{'stark-nav-tab': true, 'nav-link': true, 'bi': true, 'bi-shield-fill-plus': true, 'active': tab === 2, 'text-bg-dark': tab !== 2}" (click)="onRush()"> Rush sur plusieurs niveau </button>
+    </div>
+    <app-great-building-description *ngIf="tab === 0" [gb]="gb"></app-great-building-description>
+    <app-great-building-level *ngIf="tab === 1" [gb]="gb"></app-great-building-level>
+    <app-great-building-rush *ngIf="tab === 2" [gb]="gb"></app-great-building-rush>
+</div>

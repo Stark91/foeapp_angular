@@ -1,0 +1,6 @@
+<div class="container special">
+    <h2 class="h2">Liste des Grands Monuments</h2>
+    <div class="d-flex justify-content-center flex-wrap">
+        <app-great-building-button *ngFor="let gbElement of gbs$ | async" [gb]="gbElement" class="stark-flex m-3 text-center"></app-great-building-button>
+    </div>
+</div>
