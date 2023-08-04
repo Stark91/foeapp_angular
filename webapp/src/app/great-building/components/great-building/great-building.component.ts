@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-
-import { GreatBuilding } from '../models/great-building.model';
-import { GreatBuildingService } from '../services/great-building.service';
-import { GreatBuildingReward } from '../models/great-building-reward.model';
-import { GreatBuildingRewardService } from '../services/great-building-reward.service';
+import { GreatBuildingReward } from 'src/app/core/models/great-building-reward.model';
+import { GreatBuilding } from 'src/app/core/models/great-building.model';
+import { GreatBuildingRewardService } from 'src/app/core/services/great-building-reward.service';
+import { GreatBuildingService } from 'src/app/core/services/great-building.service';
 
 @Component({
   selector: 'app-great-building',

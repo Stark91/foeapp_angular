@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { GreatBuilding } from '../models/great-building.model';
-import { GreatBuildingService } from '../services/great-building.service';
+import { GreatBuilding } from '../../../core/models/great-building.model';
+import { GreatBuildingService } from '../../../core/services/great-building.service';
 
 @Component({
   selector: 'app-great-buildings-list',

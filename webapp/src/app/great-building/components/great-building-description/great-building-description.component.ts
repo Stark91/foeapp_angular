@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GreatBuilding } from '../models/great-building.model';
+import { GreatBuilding } from '../../../core/models/great-building.model';
 
 @Component({
   selector: 'app-great-building-description',

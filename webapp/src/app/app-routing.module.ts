@@ -1,16 +1,11 @@
 import { NgModule } from '@angular/core';
-import { HomePageComponent } from './home-page/home-page.component';
-import { AgesListComponent } from './ages-list/ages-list.component';
-import { GreatBuildingsListComponent } from './great-buildings-list/great-buildings-list.component';
-import { GreatBuildingComponent } from './great-building/great-building.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './home-page/components/home-page/home-page.component';
 
-const routes = [
+const routes: Routes = [
   {path: '', component: HomePageComponent},
-  {path: 'ages', component: AgesListComponent},
-  {path: 'ages/:id', component: GreatBuildingsListComponent},
-  {path: 'gbs', component: GreatBuildingsListComponent},
-  {path: 'gbs/:id/gb', component: GreatBuildingComponent}
+  {path: 'ages', loadChildren: () => import('./age/age.module').then(m => m.AgeModule)},
+  {path: 'gbs', loadChildren: () => import('./great-building/great-building.module').then(m => m.GreatBuildingModule)}
 ]
 
 @NgModule({

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Age } from '../models/age.model';
-import { AgeService } from '../services/age.service';
+import { Age } from '../../../core/models/age.model';
+import { AgeService } from '../../../core/services/age.service';
 
 @Component({
   selector: 'app-ages-list',

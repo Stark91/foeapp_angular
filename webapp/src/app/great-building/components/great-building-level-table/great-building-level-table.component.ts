@@ -1,39 +1,28 @@
 import { Component, Input } from '@angular/core';
-import { GreatBuildingReward } from '../models/great-building-reward.model';
+import { GreatBuildingReward } from '../../../core/models/great-building-reward.model';
 
 @Component({
-  selector: 'app-great-building-rush-table',
-  templateUrl: './great-building-rush-table.component.html',
-  styleUrls: ['./great-building-rush-table.component.scss']
+  selector: 'app-great-building-level-table',
+  templateUrl: './great-building-level-table.component.html',
+  styleUrls: ['./great-building-level-table.component.scss']
 })
-export class GreatBuildingRushTableComponent {
+export class GreatBuildingLevelTableComponent {
   @Input() rewards!: GreatBuildingReward[];
-  startLevel: number = 0;
-  endLevel: number = 10;
+  level: number = 1;
   p1ArchBoost: number = 90;
   p2ArchBoost: number = 90;
   p3ArchBoost: number = 90;
   p4ArchBoost: number = 90;
   p5ArchBoost: number = 90;
-  ownerRadioOptions: string = 'Proprietaire';
 
-  getRushRewards(): GreatBuildingReward[] {
-    let rushRewards: GreatBuildingReward[] = [];
+  getRewardByLevel(level: number): GreatBuildingReward {
     for (let i = 0; i < this.rewards.length; i++) {
       const element = this.rewards[i];
-      if(element.level > this.startLevel && element.level <= this.endLevel) {
-        rushRewards.push(element);
+      if(element.level === this.level) {
+        return this.rewards[i];
       }
     }
-    return rushRewards;
-  }
-
-  getRushTotal(rewards: GreatBuildingReward[]): number {
-    let total = 0;
-    rewards.forEach(reward => {
-      total += reward.total;
-    });
-    return total;
+    return this.rewards[0];
   }
 
   getBoostedReward(reward: number, boost: number): number {
@@ -55,15 +44,7 @@ export class GreatBuildingRushTableComponent {
     return this.getFpToSecure(reward, boosts)[0] + this.getFpToSecure(reward, boosts)[1] + this.getFpToSecure(reward, boosts)[2] + this.getFpToSecure(reward, boosts)[3] + this.getFpToSecure(reward, boosts)[4] + this.getBoostedReward(reward.p5, boosts[4]);
   }
 
-  getTotalFpToSecureRush(rewards: GreatBuildingReward[], boosts: number[]): number {
-    let total = 0;
-    rewards.forEach(reward => {
-      total += this.getTotalFpToSecure(reward, boosts);
-    });
-    return total;
-  }
-
-  getPercentTotalFpToSecureRush(fpToSecure: number, total: number): number {
+  getPercentTotalFpToSecure(fpToSecure: number, total: number): number {
     return 100 * fpToSecure / total;
   }
 }

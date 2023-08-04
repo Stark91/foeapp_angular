@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GreatBuilding } from '../models/great-building.model';
-import { SvgLine } from '../models/svg-line.model';
+import { GreatBuilding } from '../../../core/models/great-building.model';
+import { SvgLine } from '../../../core/models/svg-line.model';
 
 @Component({
   selector: 'app-great-building-svg',

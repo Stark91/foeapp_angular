@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GreatBuilding } from '../models/great-building.model';
-import { GreatBuildingBoost } from '../models/great-building-boost.model';
-import { GreatBuildingBoostService } from '../services/great-building-boost.service';
+import { GreatBuilding } from '../../../core/models/great-building.model';
+import { GreatBuildingBoost } from '../../../core/models/great-building-boost.model';
+import { GreatBuildingBoostService } from '../../../core/services/great-building-boost.service';
 
 @Component({
   selector: 'app-great-building-boost-list',

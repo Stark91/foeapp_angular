@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { GreatBuilding } from '../models/great-building.model';
+import { GreatBuilding } from '../../../core/models/great-building.model';
 
 @Component({
   selector: 'app-great-building-button',

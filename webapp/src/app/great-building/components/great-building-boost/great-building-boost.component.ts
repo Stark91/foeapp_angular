@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GreatBuildingBoost } from '../models/great-building-boost.model';
+import { GreatBuildingBoost } from '../../../core/models/great-building-boost.model';
 
 @Component({
   selector: 'app-great-building-boost',

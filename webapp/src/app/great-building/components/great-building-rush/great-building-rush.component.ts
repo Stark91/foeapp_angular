@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GreatBuilding } from '../models/great-building.model';
+import { GreatBuilding } from '../../../core/models/great-building.model';
 import { Observable } from 'rxjs';
-import { GreatBuildingReward } from '../models/great-building-reward.model';
-import { GreatBuildingRewardService } from '../services/great-building-reward.service';
+import { GreatBuildingReward } from '../../../core/models/great-building-reward.model';
+import { GreatBuildingRewardService } from '../../../core/services/great-building-reward.service';
 
 @Component({
   selector: 'app-great-building-rush',

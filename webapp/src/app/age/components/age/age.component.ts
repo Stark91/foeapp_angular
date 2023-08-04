@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Age } from '../models/age.model';
+import { Age } from 'src/app/core/models/age.model';
 
 @Component({
   selector: 'app-age',
